@@ -1,2 +1,18 @@
-# escuela-de-vida-zen
-Escuela de Vida Zen es una plataforma web diseñada para ofrecer contenido, tomar turnos para sesiones y recursos sobre bienestar, meditación y crecimiento personal. Desarrollada con React, Next.js y TailwindCSS, utiliza MongoDB como base de datos y está desplegada en Vercel.
+# Escuela de Vida Zen  
+
+Escuela de Vida Zen es una plataforma web dedicada al bienestar, la meditación y el crecimiento personal. Además de ofrecer contenido especializado, cuenta con un sistema de turnos para sesiones como **shiatsu, acupuntura, fitoterapia**, entre otras terapias complementarias.  
+
+## Tecnologías utilizadas  
+
+- React  
+- Next.js  
+- TailwindCSS  
+- MongoDB  
+- Vercel  
+
+## Funcionalidades principales  
+
+- Acceso a contenido sobre meditación y bienestar.  
+- Sistema de turnos para diferentes terapias.  
+- Experiencia fluida e interactiva.  
+
