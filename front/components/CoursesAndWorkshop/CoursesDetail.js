@@ -8,7 +8,7 @@ const CoursesDetail = ({ coursesAndWorkshop }) => {
             <div className="flex justify-center">
                 <div className="shadow-sm shadow-gray-300 w-full max-w-md rounded-lg overflow-hidden font-[sans-serif] p-6">
                     <div className="min-h-[256px]">
-                        <Image src={coursesAndWorkshop.image} width={300} height={300} className="w-full" />
+                        <Image src={coursesAndWorkshop.image} width={300} height={300} className="w-full" alt={`Curso ${coursesAndWorkshop.name}`}/>
                     </div>
 
                     <div className="mt-2">
