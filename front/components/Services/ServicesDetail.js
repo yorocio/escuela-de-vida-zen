@@ -8,7 +8,7 @@ const ServicesDetail = ({ service }) => {
             <div className="flex justify-center">
                 <div className="shadow-sm shadow-gray-300 w-full max-w-md rounded-lg overflow-hidden font-[sans-serif] p-6">
                     <div className="min-h-[256px]">
-                        <Image src={service.image} width={300} height={300} className="w-full" />
+                        <Image src={service.image} width={300} height={300} className="w-full" alt={`Servicio ${service.name}`} />
                     </div>
 
                     <div className="mt-2">
