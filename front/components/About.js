@@ -8,7 +8,7 @@ const About = () => {
         {/* Contenedor de la imagen de fondo */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/about.jpg')",  filter: "blur(2px)" }}
+          style={{ backgroundImage: "url('/about.jpg')",  filter: "blur(4px)" }}
         >
           <div className="absolute inset-0 bg-black opacity-50"></div> {/* Superposición oscura para mejorar la visibilidad del texto */}
         </div>
