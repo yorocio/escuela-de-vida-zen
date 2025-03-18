@@ -12,7 +12,6 @@ export default function Home() {
       <HeroSection />
 
       <section className="my-10">
-        <h2 className="text-center text-3xl font-bold my-6">Nuestros Servicios</h2>
         <Services />
       </section>
 
