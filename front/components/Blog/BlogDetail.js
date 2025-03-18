@@ -4,26 +4,44 @@ import Link from "next/link"
 
 const BlogDetail = ({ blog }) => {
     return (
-        <div className='my-32'>
-        <div className="flex justify-center">
-            <div className="shadow-sm shadow-gray-300 w-full max-w-md rounded-lg overflow-hidden font-[sans-serif] p-6">
-                <div className="min-h-[256px]">
-                    <Image src="/blog.jpg" width={300} height={300} className="w-full" alt={`Blog ${blog.title}`} />
-                </div>
+        <div className="my-14">
+            <div className="container px-6 py-24 mx-auto flex justify-center">
+                <div className="shadow-md rounded-lg overflow-hidden w-full max-w-4xl">
+                    <div className="min-h-[200px]">
+                        <Image
+                            src={blog.image}
+                            width={600}
+                            height={400}
+                            className="w-full object-cover h-72 rounded-t-lg"
+                            alt={`Blog ${blog.title}`}
+                        />
+                    </div>
 
-                <div className="mt-2">
-                    <h3 className="text-gray-900 text-xl font-bold text-center">{blog.title}</h3>
-                    <p className="mt-4 text-base text-gray-800 leading-relaxed text-justify">{blog.description} </p>
-                </div>
-                <div className='mt-2'>
-                    <p className='text-md text-gray-800 leading-relaxed'>{blog.date}</p>
+                    {/* Contenedor de contenido */}
+                    <div className="px-6 py-4">
+                        {/* Título */}
+                        <h3 className="text-gray-900 text-3xl font-bold text-center mb-6">{blog.title}</h3>
+
+                        {/* Descripción del blog */}
+                        <p className="text-base text-gray-800 leading-relaxed text-justify mb-4">
+                            {blog.description}
+                        </p>
+
+                        {/* Fecha */}
+                        <p className="text-sm text-gray-600 text-center mb-6">{blog.date}</p>
+
+                        {/* Botón de "Volver" */}
+                        <div className="flex justify-center">
+                            <Link
+                                className="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition-all duration-300"
+                                href={`/blog`}
+                            >
+                                Volver
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
-             
-        </div>
-        <div className="flex justify-center items-center">
-        <Link className="text-gray-200 mt-8 px-6 py-3 rounded-lg border border-gray-800 bg-gray-800 hover:bg-gray-600 flex justify-center" href='/blog'>Volver</Link>
-        </div>
         </div>
     )
 }
