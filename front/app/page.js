@@ -10,12 +10,10 @@ export default function Home() {
         <Navbar />
       </div>
       <HeroSection />
-
-      <section className="my-10">
+      <section>
         <Services />
       </section>
-
-      <section className="my-4">
+      <section>
         <BookSession />
       </section>
     </main>
