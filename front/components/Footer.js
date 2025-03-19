@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link';
 import {Instagram, Facebook, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import ButtonSubscription from './Buttons/ButtonSubscription';
 
 export default function Footer() {
   return (
@@ -56,6 +57,11 @@ export default function Footer() {
                   FAQ
                 </Link>
               </li>
+              <li>
+                <Link href="/contact" className="text-gray-200 hover:text-gray-400 transition-colors">
+                  Contacto
+                </Link>
+              </li>
             </ul>
           </div>
           
@@ -93,9 +99,7 @@ export default function Footer() {
                 placeholder="Your email address" 
                 className="w-full bg-transparent backdrop-blur-md border-2 border-gray-300 text-gray-200 px-6 py-1 rounded-md hover:bg-gray-300 focus:outline-none focus:border-gray-400"
               />
-              <button className="w-full bg-transparent backdrop-blur-md border-2 border-gray-300 text-gray-200 px-6 py-1 rounded-md hover:bg-gray-400 transition-all duration-300">
-                Suscribir
-              </button>
+             <ButtonSubscription/>
             </div>
           </div>
         </div>
