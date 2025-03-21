@@ -6,10 +6,17 @@ import logo from "../public/logo.png"
 import { Menu, X } from 'lucide-react'
 
 const Navbar = () => {
-
   const [isOpen, setIsOpen] = useState(false)
 
-
+  const navLinks = [
+    { name: 'Servicios', path: '/services' },
+    { name: 'Cursos', path: '/courses' },
+    { name: 'Sobre Zen Shiatsu', path: '/about' },
+    { name: 'Productos Digitales', path: '/store' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Turnos', path: '/calendly' },
+    { name: 'Home', path: '/' }
+  ]
 
   return (
     <header className='flex justify-between items-center py-4 px-4 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm bg-opacity-60 text-gray-500 shadow-sm'>
@@ -21,18 +28,15 @@ const Navbar = () => {
 
       {/* Menú centrado, en pantallas grandes */}
       <nav className='hidden md:flex justify-center gap-14 w-full'>
-        <Link href="/services" className='hover:text-gray-400 text-sm sm:text-base'>Servicios</Link>
-        <Link href="/courses" className='hover:text-gray-400 text-sm sm:text-base'>Cursos</Link>
-        <Link href="/about" className='hover:text-gray-400 text-sm sm:text-base'>Sobre Zen Shiatsu</Link>
-        <Link href="/store" className='hover:text-gray-400 text-sm sm:text-base'>Productos Digitales</Link>
-        <Link href="/blog" className='hover:text-gray-400 text-sm sm:text-base'>Blog</Link>
-        <Link href="/calendly" className='hover:text-gray-400 text-sm sm:text-base'>Turnos</Link>
+        {navLinks.slice(0, -1).map((link) => (
+          <Link key={link.name} href={link.path} className='hover:text-gray-400 text-sm sm:text-base'>
+            {link.name}
+          </Link>
+        ))}
       </nav>
 
       {/* Menú desplegable en móviles */}
-
-       {/* Botón menú hamburguesa */}
-       <button className="md:hidden focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
+      <button className="md:hidden focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
@@ -44,19 +48,13 @@ const Navbar = () => {
             <X size={28} />
           </button>
 
-          {["services", "courses", "about", "blog", "calendly", "store"].map((path) => (
-            <Link key={path} href={`/${path}`} className='hover:text-gray-400 text-sm sm:text-base capitalize'
-              onClick={() => setIsOpen(false)}>
-              {path}
+          {navLinks.map((link) => (
+            <Link key={link.name} href={link.path} className='hover:text-gray-400 text-sm sm:text-base capitalize' onClick={() => setIsOpen(false)}>
+              {link.name}
             </Link>
           ))}
-          <Link href="/" className='hover:text-gray-400 text-sm sm:text-base' onClick={() => setIsOpen(false)}>
-            Home
-          </Link>
         </div>
       )}
-      
-
     </header>
   )
 }

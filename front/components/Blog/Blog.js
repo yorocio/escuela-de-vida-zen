@@ -41,8 +41,8 @@ export const blogs = [{
 const Blog = () => {
   return (
     <section className="bg-white dark:bg-gray-900 my-28">
-      <h1 className="text-4xl md:text-5xl font-bold mb-4 text-center">Blog</h1>
-      <p className="text-lg max-w-2xl mx-auto">
+      <h1 className="text-3xl md:text-5xl font-bold mb-4 text-center text-gray-900">Blog</h1>
+      <p className="text-lg max-w-2xl mx-auto px-2">
         Explora nuestra colección de artículos sobre terapia Shiatsu, bienestar holístico y vida plena.
       </p>
 
