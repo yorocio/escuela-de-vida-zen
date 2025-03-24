@@ -19,7 +19,7 @@ const Navbar = () => {
   ]
 
   return (
-    <header className='flex justify-between items-center py-4 px-4 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm bg-opacity-60 text-gray-500 shadow-sm'>
+    <header className="flex justify-between items-center py-4 px-4 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide fixed top-0 left-0 right-0 z-50 bg-transparent backdrop-blur-sm bg-opacity-60 text-gray-500 shadow-sm">
 
       {/* Logo alineado a la izquierda, ocultar en pantallas pequeñas y medianas */}
       <Link href="/" className="hidden md:block absolute left-4">
