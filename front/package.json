@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "^3.8.0",
     "@tailwindcss/line-clamp": "^0.4.4",
     "lucide-react": "^0.479.0",
     "mongodb": "^6.15.0",
