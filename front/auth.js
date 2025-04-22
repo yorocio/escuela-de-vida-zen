@@ -7,7 +7,7 @@ const config = {
     providers: [
         Resend({
             apiKey: process.env.RESEND_KEY,
-            from: "noreply@achalay.xyz",
+            from: "onboarding@resend.dev", //a modo de ejemplo porque no funciona el correo noreply@achalay.xyz
             name: "Email",
         })
     ],
