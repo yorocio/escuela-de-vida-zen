@@ -2,6 +2,7 @@
 
 import NextAuth from "next-auth";
 import Resend from "next-auth/providers/resend";
+import Google from "next-auth/providers/google";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "./libs/mongo";
 
@@ -11,6 +12,10 @@ const config = {
             apiKey: process.env.RESEND_KEY, //en .env.local
             from: "onboarding@resend.dev", //a modo de ejemplo porque no funciona el correo noreply@achalay.xyz
             name: "Email",
+        }),
+        Google({
+            clientId: process.env.GOOGLE_ID,
+            clientSecret: process.env.GOOGLE_SECRET
         })
     ],
     //MongoDBAdapter(clientPromise) conecta AuthJS con mi base de datos de MongoDB
