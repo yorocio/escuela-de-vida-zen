@@ -1,4 +1,5 @@
 import React from 'react'
+import ButtonLogout from '@/components/Buttons/ButtonLogout'
 
 const dashboard = () => {
   return (
@@ -6,6 +7,9 @@ const dashboard = () => {
         <h1>Este es el perfil del usuario</h1>
         <div>
             <h2>Aqui estara la informacion del usuario</h2>
+        </div>
+        <div>
+          <ButtonLogout/>
         </div>
     </div>
   )
