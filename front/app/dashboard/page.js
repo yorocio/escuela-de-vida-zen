@@ -1,17 +1,19 @@
 import React from 'react'
 import ButtonLogout from '@/components/Buttons/ButtonLogout'
+import FormNewBoard from '@/components/FormNewBoard'
 
 const dashboard = () => {
   return (
-    <div className='my-20'>
-        <h1>Este es el perfil del usuario</h1>
-        <div>
-            <h2>Aqui estara la informacion del usuario</h2>
+    <main className='my-20 bg-base-200 min-h-screen'>
+      <section className='bg-base-100'>
+        <div className='flex justify-end px-5 py-3'>
+          <ButtonLogout />
         </div>
-        <div>
-          <ButtonLogout/>
-        </div>
-    </div>
+      </section>
+      <section className='px-5 py-12 max-w-5xl mx-auto'>
+        <FormNewBoard />
+      </section>
+    </main>
   )
 }
 
