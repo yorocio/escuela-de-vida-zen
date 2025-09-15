@@ -1,7 +1,11 @@
 'use client'
 import { useState } from "react"
+import { useRouter } from "next/navigation"
+import axios from "axios"
 
 const FormNewBoard = () => {
+
+const router = useRouter()
 
     //PRIMER ESTADO PARA EL NOMBRE DEL TABLERO QUE INGRESARA EL USUARIO
     const [name, setName] = useState("")
@@ -9,7 +13,7 @@ const FormNewBoard = () => {
     //SEGUNDO ESTADO PARA PONER EN TRUE CUANDO HAGAMOS UNA SOLICITUD HTTP
     const [isLoading, setIsLoading] = useState(false)
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
 
         if (isLoading) return;
@@ -18,12 +22,20 @@ const FormNewBoard = () => {
 
         try {
             //Llamada asíncrona a la API para crear un nuevo tablero
+            const data = await axios.post("/api/board", { name })
+
+            setName("")
+            
+            router.refresh()
             //Redirige a la pagina del tablero
         }
         catch (error) {
             //mostrar el mensaje de error
-            setIsLoading(false)
+
             //detener el spinner de carga
+        }
+        finally {
+            setIsLoading(false)
         }
     }
 
@@ -36,7 +48,7 @@ const FormNewBoard = () => {
             {/* FORMULARIO */}
             <label className="form-control w-full">
                 <div className="label">
-                    <span className="label-text">Nombre de la tabla</span>
+                    <span className="label-text py-1">Nombre de la tabla</span>
                 </div>
                 <input
                     required
