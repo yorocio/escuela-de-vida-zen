@@ -2,10 +2,11 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import axios from "axios"
+import toast from "react-hot-toast"
 
 const FormNewBoard = () => {
 
-const router = useRouter()
+    const router = useRouter()
 
     //PRIMER ESTADO PARA EL NOMBRE DEL TABLERO QUE INGRESARA EL USUARIO
     const [name, setName] = useState("")
@@ -25,13 +26,17 @@ const router = useRouter()
             const data = await axios.post("/api/board", { name })
 
             setName("")
-            
+
+            toast.success("Tablero creado")
+
             router.refresh()
             //Redirige a la pagina del tablero
         }
         catch (error) {
-            //mostrar el mensaje de error
-
+            //mostrar el mensaje de error. Devuelve undefined en vez de un error en consola.
+            const errorMessage = error.response?.data?.error || error.message || "Algo salió mal";
+            
+            toast.error(errorMessage)
             //detener el spinner de carga
         }
         finally {
