@@ -5,6 +5,7 @@ import { auth } from '@/auth'
 import connectMongo from '@/libs/mongoose'
 import User from '@/models/User'
 import Link from 'next/link'
+import Board from '@/models/Boards'
 
 
 //FUNCION ASYNC PARA OBTENER LOS DATOS DEL USUARIO Y SUS TABLEROS DESDE LA BASE DE DATOS

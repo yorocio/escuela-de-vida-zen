@@ -3,6 +3,7 @@ import Board from "@/models/Boards";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import CardBoardLink from "@/components/CardBoardLink";
 
 //boardId como parametro para poder recuperar el tablero de la base de datos.
 const getBoard = async (boardId) => {
@@ -47,6 +48,8 @@ export default async function FeedbackBoard({ params }) {
         </section>
         <section className="max-w-5xl mx-auto px-5 py-12 spacre-y-12">
             <h1 className="font-extrabold text-xl mb-4">{board.name}</h1>
+
+            <CardBoardLink boardId={board._id} />
         </section>
     </main>
 }
