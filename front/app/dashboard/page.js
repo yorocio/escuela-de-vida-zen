@@ -4,7 +4,7 @@ import FormNewBoard from '@/components/FormNewBoard'
 import { auth } from '@/auth'
 import connectMongo from '@/libs/mongoose'
 import User from '@/models/User'
-import Board from '@/models/Boards'
+import Link from 'next/link'
 
 
 //FUNCION ASYNC PARA OBTENER LOS DATOS DEL USUARIO Y SUS TABLEROS DESDE LA BASE DE DATOS
@@ -16,11 +16,11 @@ async function getUser() {
   return await User.findById(session.user.id).populate("boards")
 }
 
+
+
 export default async function Dashboard() {
 
   const user = await getUser()
-
-
 
   return (
     <main className='my-20 bg-base-200 min-h-screen'>
@@ -37,12 +37,16 @@ export default async function Dashboard() {
 
           <ul className='space-y-4'>
             {user.boards.map((board) => {
-            return (<li
-              key={board._id}
-              className='bg-base-100 p-6 rounded-3xl'
-            >{board.name}</li>
-            );
-          })}
+              return (
+                <li
+                  key={board._id}
+                  className='bg-base-100 p-6 rounded-3xl'>
+                  <Link href={`/dashboard/b/${board._id}`}>
+                    {board.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
