@@ -41,3 +41,43 @@ export async function POST(req) {
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
+
+//FUNCION PARA ELIMINAR ALGO DE LA BASE DE DATOS CON UNA SOLICITUD DELETE AL SERVIDOR
+
+export async function DELETE(req) {
+    try {
+        //DEBEMOS SABER CUAL TARJETA QUEREMOS ELIMINAR
+        const { searchParams } = req.nextUrl;
+        const boardId = searchParams.get('boardId');
+
+        if (!boardId) {
+            return NextResponse.json(
+                { error: 'El id de la tarjeta es neceasario' },
+                { status: 400 }
+            )
+        }
+
+        const session = await auth()
+
+        if (!session) {
+            return NextResponse.json(
+                { error: 'No autorizado' },
+                { status: 401 }
+            )
+        }
+
+        await Board.deleteOne({
+            _id: boardId,
+            userId: session?.user?.id,
+        });
+
+        const user = await User.findById(session?.user?.id);
+        user.boards = user.boards.filter((id) => id.toString() !== boardId);
+        await user.save()
+
+        return NextResponse.json({})
+    }
+    catch (error) {
+        return NextResponse.json({ error: error.message }, { status: 500 })
+    }
+}
