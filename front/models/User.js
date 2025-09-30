@@ -14,16 +14,6 @@ const UserSchema = new mongoose.Schema({
     image: {
         type: String,
     },
-    //DETERMINA SI EL USUARIO TIENE ACCESO AL PRODUCTO
-    //SU VALOR PREDETERMINADO ES FALSE, Y SERA TRUE DESPUES DEL PAGO.
-    hasAccess: {
-        type: Boolean,
-        default: false,
-    },
-    //IDENTIFICADOR UNICO PROPORCIONADO POR EL PROVEEDOR DE PAGOS.
-    customerId: {
-        type: String,
-    },
     boards: [
         {
             type: mongoose.Schema.Types.ObjectId,
