@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import Services from "@/components/Services/Services";
 import { auth } from "@/auth";
 import ButtonLogin from "@/components/Buttons/ButtonLogin";
+import Mp from "@/components/Mp";
 
 export default async function Home() {
 
@@ -22,6 +23,9 @@ export default async function Home() {
       </section>
       <section>
         <BookSession />
+      </section>
+      <section>
+        <Mp />
       </section>
     </main>
   );
