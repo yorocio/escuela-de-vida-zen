@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.8.0",
+    "@mercadopago/sdk-react": "^1.0.6",
     "@tailwindcss/line-clamp": "^0.4.4",
     "axios": "^1.12.1",
     "daisyui": "^5.1.10",

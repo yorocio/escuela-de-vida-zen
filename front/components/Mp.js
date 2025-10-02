@@ -1,4 +1,53 @@
-"use client";
+'use client'
+import React, { useState } from "react";
+import { initMercadoPago, Wallet } from "@mercadopago/sdk-react";
+
+initMercadoPago(process.env.NEXT_PUBLIC_MP_PUBLIC_KEY);
+
+const Mp = () => {
+  const [preferenceId, setPreferenceId] = useState("");
+
+  const handleClick = async () => {
+    const res = await fetch("/api/checkout", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        items: [{ title: "Mi producto", quantity: 1, unit_price: 1000 }]
+      })
+    });
+    const data = await res.json();
+    setPreferenceId(data.preferenceId); // Aquí obtienes tu preferenceId
+  };
+
+  return (
+    <div className="flex flex-col items-center mt-12">
+      <button
+        onClick={handleClick}
+        className="bg-sky-600 hover:bg-red-400 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-colors mb-24"
+      >
+        Generar pago
+      </button>
+
+      {preferenceId && (
+        <div className="w-72 mt-6">
+          <Wallet initialization={{ preferenceId }} />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Mp;
+
+
+
+
+
+
+
+
+
+/* "use client";
 import { useEffect } from "react";
 
 export default function Mp() {
@@ -52,4 +101,6 @@ export default function Mp() {
       </button>
     </main>
   );
-}
+} */
+
+
